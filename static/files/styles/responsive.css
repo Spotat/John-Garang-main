@@ -76,7 +76,7 @@
 
     .about {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 0;
     }
     .about-nav {
         padding: 2rem !important;
@@ -84,8 +84,8 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
         backdrop-filter: blur(5px);
-        margin-top: -3rem;
-        margin-bottom: -1rem;
+        margin-top: -3.5rem;
+        /* margin-bottom: -1rem; */
     }
     .about-section {
         position: relative;
