@@ -83,7 +83,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(2px);
         margin-top: -3.5rem;
         /* margin-bottom: -1rem; */
     }
@@ -96,7 +96,7 @@
     .portfolio-content {
         padding: 2rem;
         grid-template-columns: 1fr;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(2px);
     }
     .portfolio-content > .card {
         padding: 2rem;
