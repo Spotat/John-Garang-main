@@ -1,0 +1,89 @@
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    filter: brightness(80%);
+}
+.bg {
+    z-index: -99;
+}
+
+
+.project__box {
+    width: 100%;
+    overflow-x: hidden;
+}
+.project__banner {
+    /* background-color: #969696; */
+    width: 100%;
+    height: 40vh;
+    border-radius: 5px;
+}
+.project__banner > img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    aspect-ratio: 6/14;
+    object-fit: cover;
+    border-radius: 5px;
+    object-position: center;
+    filter: brightness(90%);
+}
+.project__banner#amaniBan > img {
+    object-position: top center;
+}
+.project__body > h3 {
+    width: fit-content;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    margin-top: 1rem;
+    color: white;
+    overflow-x: hidden;
+    text-wrap: nowrap;
+    cursor: pointer;
+    transition: all .4s ease-in;
+    /* overflow-clip-margin: ; */
+}
+.project__body#modalBody > h3 {
+    color: black;
+}
+.project__body > h3:hover {
+    border-bottom: 1px solid white;
+}
+.skill__box {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+.skill__box > span {
+    padding: 5px 10px;
+    border-radius: 3px;
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    font-family: "Poppins-Thin", sans-serif;
+    font-size: 12px;
+    text-wrap: nowrap;
+}
+#modalBody > .skill__box > span {
+    color: #1b1b1b;
+    border: 1px solid #1b1b1b;
+}
+
+@media (max-width: 700px) {
+    .project__banner {
+        height: 25vh;
+    }
+    .project__box {
+        width: 100%;
+        overflow-x: auto;
+    }
+}

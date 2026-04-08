@@ -1,0 +1,119 @@
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: 1fr;
+        padding: 0%;
+    }
+    body > h1 {
+        margin-top: 2em;
+    }
+    body > h1:nth-child(1) {
+        text-wrap: nowrap;
+        width: 80%;
+        color: #9696963a;
+        font-size: 5.5em;
+    }
+    body > h1:nth-child(2) {
+        text-align: left;
+        padding-top: 1em;
+        font-size: 3.5em;
+        -webkit-text-stroke: 1px #f0f0f0a4;
+    }
+    #particle-js#two {
+        visibility: visible;
+    }
+    .side-nav {
+        /* height: 30px; */
+        margin-top: 0;
+    }
+    .navigation {
+        padding-top: 40px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        min-height: 100vh;
+        z-index: 99;
+        background: #333;
+        transition: all .4s ease-in;
+        visibility: hidden;
+        display: none;
+        opacity: 0;
+        z-index: -99;
+    }
+    .humburger {
+        visibility: visible;
+        display: block;
+        padding: 0%;
+    }
+
+    .main {
+        margin-top: 5rem;
+    }
+    .row {
+        overflow: hidden;
+    }
+    .row > h2 {
+        text-wrap: wrap;
+        font-size: 2rem;
+    }
+    .row  > .profile-image {
+        min-width: auto !important;
+        width: 100%;
+        height: fit-content;
+    }
+    .profile-image > img {
+        width: 100%;
+        height: auto;
+    }
+    .body-content {
+        grid-template-columns: 1fr;
+    }
+    .top-nav {
+        gap: 1rem;
+        margin-bottom: 5rem;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .about-nav {
+        padding: 2rem !important;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        /* backdrop-filter: blur(5px); */
+        margin-top: -3rem;
+        margin-bottom: -1rem;
+    }
+    .about-section {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+    }
+    .portfolio-content {
+        padding: 1rem 2rem;
+        grid-template-columns: 1fr;
+    }
+    .portfolio-content > .card {
+        padding: 2rem;
+        border-radius: 0%;
+    }
+    .card:nth-child(4):hover {
+        background: #55d6c3d5;
+    }
+    .card:nth-child(3) > p, .card:nth-child(3) > h2 {
+        color: #282828;
+    }
+    .card:nth-child(3) {
+        background: #f2f5ffd5;
+    }
+    .card:nth-child(2):hover {
+        background: #dfb2f4d5;
+    }
+    .card:nth-child(1):hover {
+        background: #f49097d8;
+    }
+}
