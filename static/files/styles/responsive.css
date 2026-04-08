@@ -94,7 +94,7 @@
         right: auto;
     }
     .portfolio-content {
-        padding: 1rem 2rem;
+        padding: 2rem;
         grid-template-columns: 1fr;
         backdrop-filter: blur(5px);
     }
