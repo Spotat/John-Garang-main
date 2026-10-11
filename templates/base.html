@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7f2">
+    <meta name="description" content="{% block meta_description %}John Garang Otieno — web developer and digital designer creating thoughtful, reliable digital experiences.{% endblock %}">
+    <title>{% block title %}John Garang Otieno — Developer & Designer{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <script src="{{ url_for('static', filename='files/scripts/theme.js', v='2') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='files/styles/portfolio.css') }}">
+    <script src="{{ url_for('static', filename='files/scripts/portfolio.js', v='2') }}" defer></script>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="header-inner">
+            <a class="brand" href="{{ url_for('home') }}" aria-label="John Garang Otieno home">
+                <span class="brand-mark" aria-hidden="true">JG</span>
+                <span class="brand-name">John Garang Otieno</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="menu-toggle-label">Menu</span>
+                <span class="menu-toggle-icon" aria-hidden="true"></span>
+            </button>
+            <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+                <a class="{% if request.endpoint == 'home' %}is-active{% endif %}" href="{{ url_for('home') }}">Home</a>
+                <a class="{% if request.endpoint == 'about' %}is-active{% endif %}" href="{{ url_for('about') }}">About</a>
+                <a class="{% if request.endpoint in ('projects', 'project_detail') %}is-active{% endif %}" href="{{ url_for('projects') }}">Work</a>
+                <a class="nav-contact {% if request.endpoint == 'contact' %}is-active{% endif %}" href="{{ url_for('contact') }}">Let’s talk <span aria-hidden="true">↗</span></a>
+                <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+                    <span class="theme-symbol" aria-hidden="true">◐</span>
+                    <span class="theme-label">Dark mode</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-stack" role="status" aria-live="polite">
+                    {% for category, message in messages %}
+                        <p class="flash-message flash-{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <a class="brand footer-brand" href="{{ url_for('home') }}">
+                <span class="brand-mark" aria-hidden="true">JG</span>
+                <span class="brand-name">John Garang Otieno</span>
+            </a>
+            <p>Thoughtful digital experiences, built with care.</p>
+            <a class="footer-email" href="mailto:hello@johngarangotieno.com">hello@johngarangotieno.com <span aria-hidden="true">↗</span></a>
+            <small>© {{ current_year }} John Garang Otieno. All rights reserved.</small>
+        </div>
+    </footer>
+</body>
+</html>

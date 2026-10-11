@@ -1,0 +1,25 @@
+<svg class="motion-art" viewBox="0 0 1200 600" role="img" aria-labelledby="motion-title-{{ project.slug }} motion-desc-{{ project.slug }}" preserveAspectRatio="xMidYMid slice">
+    <title id="motion-title-{{ project.slug }}">{{ project.name }} motion graphics opener</title>
+    <desc id="motion-desc-{{ project.slug }}">An abstract animated project title sequence.</desc>
+    <defs>
+        <linearGradient id="motion-gradient-{{ project.slug }}" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#b9ee68"/>
+            <stop offset="1" stop-color="#6c856f"/>
+        </linearGradient>
+        <pattern id="motion-grid-{{ project.slug }}" width="44" height="44" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.4" fill="currentColor" opacity=".2"/>
+        </pattern>
+    </defs>
+    <rect width="1200" height="600" fill="url(#motion-grid-{{ project.slug }})"/>
+    <circle class="motion-orbit motion-orbit-one" cx="890" cy="294" r="158" fill="none" stroke="url(#motion-gradient-{{ project.slug }})" stroke-width="1.5"/>
+    <circle class="motion-orbit motion-orbit-two" cx="890" cy="294" r="218" fill="none" stroke="currentColor" stroke-width="1" opacity=".35" stroke-dasharray="3 12"/>
+    <path class="motion-loop" d="M735 294c0-86 69-155 155-155s155 69 155 155-69 155-155 155-155-69-155-155Z" fill="none" stroke="url(#motion-gradient-{{ project.slug }})" stroke-width="16" stroke-linecap="round" stroke-dasharray="245 730"/>
+    <rect class="motion-square" x="862" y="266" width="56" height="56" rx="12" fill="url(#motion-gradient-{{ project.slug }})"/>
+    <circle class="motion-spark motion-spark-one" cx="655" cy="180" r="7" fill="#b9ee68"/>
+    <circle class="motion-spark motion-spark-two" cx="1072" cy="407" r="5" fill="#b9ee68"/>
+    <text class="motion-overline" x="92" y="198">SELECTED WORK · PROJECT STUDY</text>
+    <text class="motion-title" x="88" y="294">{{ project.name }}</text>
+    <path d="M92 326h85" stroke="#b9ee68" stroke-width="4"/>
+    <text class="motion-caption" x="92" y="370">{{ project.category }}</text>
+    <text class="motion-caption motion-caption-bottom" x="92" y="530">A process in motion <tspan fill="#b9ee68">↗</tspan></text>
+</svg>

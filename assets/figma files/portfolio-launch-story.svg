@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" role="img" aria-labelledby="title description">
+  <title id="title">Portfolio launch story</title>
+  <desc id="description">A vertical story-format announcement for John Garang Otieno's portfolio, designed with a deep green backdrop, a lime JG mark, and a selected-work preview.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#202d23"/>
+      <stop offset="1" stop-color="#111813"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dce8d1"/>
+      <stop offset="1" stop-color="#a9c78e"/>
+    </linearGradient>
+    <clipPath id="siteClip">
+      <rect x="89" y="1040" width="902" height="579" rx="10"/>
+    </clipPath>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#background)"/>
+  <circle cx="1006" cy="359" r="328" fill="#b9ee68" opacity=".07"/>
+  <circle cx="61" cy="1560" r="264" fill="#b9ee68" opacity=".05"/>
+  <g transform="translate(84 84)">
+    <circle cx="35" cy="35" r="35" fill="#b9ee68"/>
+    <text x="35" y="45" fill="#18231d" font-family="Syne, Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-2.5" text-anchor="middle">JG</text>
+    <text x="93" y="30" fill="#f6f7f2" font-family="DM Sans, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">JOHN GARANG OTIENO</text>
+    <text x="93" y="58" fill="#a5b2a7" font-family="DM Sans, Arial, sans-serif" font-size="14" letter-spacing="2.4">DEVELOPER  /  DESIGNER</text>
+  </g>
+  <rect x="87" y="292" width="222" height="43" rx="21" fill="#b9ee68"/>
+  <circle cx="111" cy="313" r="4" fill="#18231d"/>
+  <text x="129" y="319" fill="#18231d" font-family="DM Sans, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="1.5">PORTFOLIO · NOW LIVE</text>
+  <text x="81" y="481" fill="#f6f7f2" font-family="Syne, Arial, sans-serif" font-size="103" font-weight="700" letter-spacing="-7">A new home</text>
+  <text x="81" y="595" fill="#f6f7f2" font-family="Syne, Arial, sans-serif" font-size="103" font-weight="700" letter-spacing="-7">for thoughtful</text>
+  <text x="81" y="709" fill="#b9ee68" font-family="Syne, Arial, sans-serif" font-size="103" font-weight="700" letter-spacing="-7">digital work.</text>
+  <text x="88" y="789" fill="#c7d0c7" font-family="DM Sans, Arial, sans-serif" font-size="24">Selected projects, the process behind them,</text>
+  <text x="88" y="825" fill="#c7d0c7" font-family="DM Sans, Arial, sans-serif" font-size="24">and a little about how I bring ideas to life.</text>
+  <g transform="rotate(-2 540 1330)">
+    <rect x="73" y="1024" width="934" height="615" rx="18" fill="#080c09" opacity=".45"/>
+    <rect x="89" y="1040" width="902" height="579" rx="10" fill="url(#panel)"/>
+    <g clip-path="url(#siteClip)">
+      <rect x="89" y="1040" width="902" height="73" fill="#f6f7f2"/>
+      <circle cx="135" cy="1077" r="20" fill="#18231d"/>
+      <text x="135" y="1084" fill="#b9ee68" font-family="Syne, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="-1" text-anchor="middle">JG</text>
+      <text x="170" y="1083" fill="#18231d" font-family="DM Sans, Arial, sans-serif" font-size="16" font-weight="700">John Garang Otieno</text>
+      <path d="M715 1078h36m22 0h36m22 0h60" stroke="#66736b" stroke-width="4" stroke-linecap="round"/>
+      <text x="142" y="1202" fill="#31523d" font-family="DM Sans, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="2.4">INDEPENDENT DEVELOPER &amp; DESIGNER</text>
+      <text x="137" y="1287" fill="#18231d" font-family="Syne, Arial, sans-serif" font-size="56" font-weight="700" letter-spacing="-3">Good ideas deserve</text>
+      <text x="137" y="1349" fill="#18231d" font-family="Syne, Arial, sans-serif" font-size="56" font-weight="700" letter-spacing="-3">great digital experiences.</text>
+      <rect x="140" y="1390" width="220" height="50" rx="4" fill="#b9ee68"/>
+      <text x="163" y="1422" fill="#18231d" font-family="DM Sans, Arial, sans-serif" font-size="14" font-weight="700">EXPLORE MY WORK  ↗</text>
+      <rect x="139" y="1484" width="382" height="186" rx="5" fill="#18231d"/>
+      <rect x="536" y="1484" width="408" height="186" rx="5" fill="#d78346"/>
+      <path d="M159 1629c53-83 99-85 155-28 41-43 81-54 187-45v114H159z" fill="#b9ee68"/>
+      <circle cx="419" cy="1522" r="21" fill="#f6f7f2"/>
+      <path d="M558 1606c60-76 104-72 147-9 65-65 113-65 219 16v57H558z" fill="#f2c785"/>
+      <circle cx="747" cy="1538" r="26" fill="#18231d"/>
+    </g>
+    <rect x="89" y="1040" width="902" height="579" rx="10" fill="none" stroke="#f6f7f2" stroke-opacity=".55"/>
+  </g>
+  <text x="540" y="1756" fill="#f6f7f2" font-family="DM Sans, Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="2" text-anchor="middle">DESIGN-MINDED. DETAIL-DRIVEN.</text>
+  <text x="540" y="1800" fill="#a5b2a7" font-family="DM Sans, Arial, sans-serif" font-size="19" letter-spacing="2" text-anchor="middle">BUILT FOR THE REAL WORLD.</text>
+  <path d="M507 1849h66m-14-14 14 14-14 14" fill="none" stroke="#b9ee68" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

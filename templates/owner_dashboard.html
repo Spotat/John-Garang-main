@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Project dashboard — John Garang Otieno{% endblock %}
+{% block meta_description %}Manage the projects and media published in your portfolio.{% endblock %}
+
+{% block content %}
+<section class="page-hero section-wrap owner-hero">
+    <p class="eyebrow">Owner workspace</p>
+    <h1>Your <span>projects.</span></h1>
+    <p class="page-lede">Create and curate the work visitors see on your portfolio.</p>
+    <div class="owner-actions">
+        <a class="button button-primary" href="{{ url_for('owner_project_new') }}">Add a project <span aria-hidden="true">＋</span></a>
+        <form method="post" action="{{ url_for('owner_logout') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <button class="button button-outline" type="submit">Sign out</button>
+        </form>
+    </div>
+</section>
+<section class="section-wrap owner-projects">
+    {% if projects %}
+    <div class="owner-project-list">
+        {% for project in projects %}
+        <article class="owner-project-card">
+            <div class="owner-project-cover">
+                {% if project.cover_url %}
+                <img src="{{ project.cover_url }}" alt="" loading="lazy">
+                {% else %}
+                <span aria-hidden="true">✳</span>
+                {% endif %}
+            </div>
+            <div class="owner-project-info">
+                <p class="eyebrow">{{ project.category }} <span class="owner-status {% if not project.is_published %}is-draft{% endif %}">{% if project.is_published %}Published{% else %}Draft{% endif %}</span></p>
+                <h2>{{ project.title }}</h2>
+                <p>{{ project.description }}</p>
+                <small>{{ project.gallery|length }} media item{% if project.gallery|length != 1 %}s{% endif %} · /projects/{{ project.slug }}</small>
+            </div>
+            <div class="owner-project-actions">
+                <a class="button button-outline" href="{{ url_for('owner_project_edit', project_id=project.id) }}">Edit</a>
+                <form method="post" action="{{ url_for('owner_project_delete', project_id=project.id) }}" data-confirm-delete>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="button button-danger" type="submit">Delete</button>
+                </form>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="owner-empty">
+        <span aria-hidden="true">✳</span>
+        <h2>Your portfolio starts here.</h2>
+        <p>Add a project to publish its story, images, and video.</p>
+        <a class="button button-primary" href="{{ url_for('owner_project_new') }}">Add your first project</a>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

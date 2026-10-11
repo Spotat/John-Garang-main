@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Owner sign in — John Garang Otieno{% endblock %}
+{% block meta_description %}Secure sign-in to manage the portfolio projects.{% endblock %}
+
+{% block content %}
+<section class="page-hero section-wrap owner-hero">
+    <p class="eyebrow">Private workspace</p>
+    <h1>Owner <span>sign in.</span></h1>
+    <p class="page-lede">Manage the projects and media shown in your portfolio.</p>
+</section>
+<section class="section-wrap owner-panel">
+    <form class="owner-form" method="post" action="{{ url_for('owner_login') }}">
+        {{ form.hidden_tag() }}
+        {% if form.errors %}<p class="form-error-summary" role="alert">Enter your owner username and password.</p>{% endif %}
+        <div class="form-field">
+            {{ form.username.label }}
+            {{ form.username(autocomplete="username", required=true, class="form-control", maxlength="80") }}
+        </div>
+        <div class="form-field">
+            {{ form.password.label }}
+            {{ form.password(type="password", autocomplete="current-password", required=true, class="form-control", maxlength="256") }}
+        </div>
+        {{ form.submit(class="button button-primary") }}
+    </form>
+</section>
+{% endblock %}

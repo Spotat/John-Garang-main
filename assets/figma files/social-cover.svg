@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 500" role="img" aria-labelledby="title description">
+  <title id="title">Social profile cover</title>
+  <desc id="description">A wide portfolio cover graphic for John Garang Otieno, with a JG badge, a concise design and development tagline, and abstract lime accents.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#202d23"/>
+      <stop offset="1" stop-color="#111813"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0v36" fill="none" stroke="#f6f7f2" stroke-opacity=".045"/>
+    </pattern>
+  </defs>
+  <rect width="1500" height="500" fill="url(#background)"/>
+  <rect width="1500" height="500" fill="url(#grid)"/>
+  <circle cx="1390" cy="24" r="270" fill="#b9ee68" opacity=".08"/>
+  <circle cx="1435" cy="459" r="145" fill="#b9ee68" opacity=".12"/>
+  <path d="M0 422h1500" stroke="#f6f7f2" stroke-opacity=".15"/>
+  <g transform="translate(85 103)">
+    <circle cx="70" cy="70" r="70" fill="#b9ee68"/>
+    <text x="70" y="90" fill="#18231d" font-family="Syne, Arial, sans-serif" font-size="57" font-weight="800" letter-spacing="-6" text-anchor="middle">JG</text>
+    <text x="177" y="61" fill="#f6f7f2" font-family="Syne, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-2">John Garang Otieno</text>
+    <text x="180" y="105" fill="#a5b2a7" font-family="DM Sans, Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="3">INDEPENDENT DEVELOPER  /  DESIGNER</text>
+    <text x="180" y="178" fill="#f6f7f2" font-family="DM Sans, Arial, sans-serif" font-size="23">Thoughtful digital experiences, built with care.</text>
+  </g>
+  <g transform="translate(1182 104)" fill="none" stroke="#b9ee68" stroke-width="2">
+    <path d="M40 0v188M0 40h188" opacity=".55"/>
+    <circle cx="94" cy="94" r="68" opacity=".4"/>
+    <circle cx="94" cy="94" r="44" opacity=".7"/>
+    <path d="M94 40v54h54" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="94" cy="94" r="7" fill="#b9ee68" stroke="none"/>
+  </g>
+  <text x="87" y="467" fill="#a5b2a7" font-family="DM Sans, Arial, sans-serif" font-size="13" letter-spacing="2.4">DESIGN-MINDED  ·  DETAIL-DRIVEN  ·  BUILT FOR THE REAL WORLD</text>
+  <text x="1413" y="467" fill="#b9ee68" font-family="DM Sans, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2" text-anchor="end">PORTFOLIO  /  2026</text>
+</svg>

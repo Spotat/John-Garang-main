@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ code }} — {{ title }}{% endblock %}
+
+{% block content %}
+<section class="section-wrap error-page">
+    <p class="eyebrow">Error {{ code }}</p>
+    <h1>{{ title }}<span class="accent-dot">.</span></h1>
+    <p>Sorry, we couldn’t complete that request.</p>
+    <a class="button button-primary" href="{{ url_for('home') }}">Back to home <span aria-hidden="true">→</span></a>
+</section>
+{% endblock %}

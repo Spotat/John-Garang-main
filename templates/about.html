@@ -1,95 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animated Gradient</title>
-    <link rel="stylesheet" href="../static/files/styles/about.css">
-    <link rel="stylesheet" href="../static/files/assets/fontawesome-free-6.5.2-web/css/all.css">
-    <!-- <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
-        }
+{% extends "base.html" %}
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+{% block title %}About — John Garang Otieno{% endblock %}
+{% block meta_description %}Learn more about John Garang Otieno, a freelance developer and designer working across web development, UI/UX, and brand design.{% endblock %}
 
-        h1 {
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-    </style> -->
+{% block content %}
+<section class="page-hero section-wrap">
+    <p class="eyebrow">About me</p>
+    <h1>Curious by nature.<br><span>Thoughtful by design.</span></h1>
+    <p class="page-lede">I’m a freelance developer and digital designer who enjoys making complex things feel simple, useful, and human.</p>
+</section>
 
-</head>
-<body>
-    <header>
-        <a href="./index.html" class="navigation"><i class="fa fa-arrow-left"></i></a>
-        <div class="logo">John Garang Otieno</div>
-    </header>
-    <section class="about">
-        <h1 class="title">About Me</h1>
-        <div class="paragraph">
-            <p>Freelance developer with a strong foundation in both front-end and back-end technologies, complemented by design expertise. Adept at creating seamless user experiences and efficient server-side applications.</p>
+<section class="section-wrap about-story">
+    <div class="about-photo">
+        <img src="{{ url_for('portfolio_site_asset', asset_key='owner-portrait') }}" alt="John Garang Otieno" loading="lazy">
+        <span class="photo-caption">John Garang Otieno · Developer & designer</span>
+    </div>
+    <div class="about-copy">
+        <p class="eyebrow">The short version</p>
+        <h2>I care about how it works — and how it feels.</h2>
+        <p>I work across the front and back end, bringing visual thinking and practical engineering together. My approach starts with understanding the people and purpose behind a project, then shaping a clear experience around them.</p>
+        <p>My toolkit includes HTML, CSS, JavaScript, Bootstrap, Flask, MySQL, and Figma. I also work with responsive web design, API integration, prototyping, testing, and version control.</p>
+        <a class="text-link" href="{{ url_for('projects') }}">See what I’ve been making <span aria-hidden="true">→</span></a>
+    </div>
+</section>
+
+<section class="skills-section">
+    <div class="section-wrap">
+        <div class="section-heading">
+            <div><p class="eyebrow">What I bring</p><h2>Good work, from every angle.</h2></div>
         </div>
-        <div class="paragraph">
-            <p>I'm skilled at different programing languages and technologies including HTML, CSS, JavaScript and Bootstrap for front-end development, Flask and MySQL for back-end development, Figma for design and additional skills which include Responsive Web Design, Api Integration, Prototyping, Code testing and Version Control (Git)</p>
+        <div class="skills-grid">
+            <article class="skill-card"><span class="skill-number">01</span><h3>Web development</h3><p>Responsive, maintainable websites built with care across the interface and the server.</p><div class="tag-list"><span>HTML & CSS</span><span>JavaScript</span><span>Flask</span><span>MySQL</span></div></article>
+            <article class="skill-card"><span class="skill-number">02</span><h3>UI/UX design</h3><p>Clear journeys and usable interfaces, grounded in the needs of the people using them.</p><div class="tag-list"><span>Figma</span><span>Prototyping</span><span>Responsive design</span></div></article>
+            <article class="skill-card"><span class="skill-number">03</span><h3>Brand & visual design</h3><p>Consistent visual direction that gives a product or organization a clear point of view.</p><div class="tag-list"><span>Visual identity</span><span>Adobe Express</span><span>Photoshop</span></div></article>
         </div>
-    </section>
-    <section class="experience">
-        <h1><span>Ex</span>perience</h1>
-        <div class="container">
-            <div class="row">
-                <div class="time-content">
-                    <p>August 2022 - Feb 2023</p>
-                </div>
-                <div class="work-content">
-                    <h2>Freelance web developer</h2>
-                    <p>Worked on various client projects, delivering high-quality web applications and designs.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="time-content">
-                    <p>July 2023 - Dec 2023</p>
-                </div>
-                <div class="work-content">
-                    <h2>UI/Ux designer</h2>
-                    <p>Collaborated with clients to understand their requirements and provide tailored solutions.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="time-content">
-                    <p>Jan 2024 - Feb 2024</p>
-                </div>
-                <div class="work-content">
-                    <h2>Freelancer</h2>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam possimus autem doloribus! Incidunt, alias fugiat. Deserunt modi doloremque natus! Inventore natus corporis cumque accusantium eum rem minima, illo dolore quas?</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="time-content">
-                    <p>Dec 2024 - Untill now</p>
-                </div>
-                <div class="work-content">
-                    <h2>Lead software developer</h2>
-                    <p>Worked and collaborated on various open-source projects.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-        <div class="copyright">
-            <p>&copy; 2024 John Garang. All rights reserved</p>
-        </div>
-    </footer>
-</body>
-</html>
+    </div>
+</section>
+
+<section class="section-wrap experience-section">
+    <div class="section-heading"><div><p class="eyebrow">Experience</p><h2>Learning through making.</h2></div></div>
+    <div class="timeline">
+        <article class="timeline-item"><p class="timeline-date">August 2022 – February 2023</p><div><h3>Freelance web developer</h3><p>Delivered web applications and digital experiences for a range of client projects.</p></div></article>
+        <article class="timeline-item"><p class="timeline-date">July 2023 – December 2023</p><div><h3>UI/UX designer</h3><p>Worked with clients to understand their needs and develop tailored design solutions.</p></div></article>
+        <article class="timeline-item"><p class="timeline-date">January 2024 – February 2024</p><div><h3>Freelance projects</h3><p>Continued building practical experience across web development and digital design.</p></div></article>
+        <article class="timeline-item"><p class="timeline-date">December 2024 – Present</p><div><h3>Lead software developer</h3><p>Collaborating on software projects, including work in open-source communities.</p></div></article>
+    </div>
+</section>
+
+<section class="section-wrap contact-cta">
+    <div><p class="eyebrow">Let’s work together</p><h2>Have a good one in mind?</h2></div>
+    <a class="button button-primary" href="{{ url_for('contact') }}">Get in touch <span aria-hidden="true">↗</span></a>
+</section>
+{% endblock %}

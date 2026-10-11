@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">JG logo</title>
+  <desc id="description">A lime JG monogram centered in a deep green circular badge.</desc>
+  <circle cx="256" cy="256" r="248" fill="#18231d"/>
+  <text x="256" y="286" fill="#b9ee68" font-family="Syne, Arial, sans-serif" font-size="174" font-weight="800" letter-spacing="-16" text-anchor="middle">JG</text>
+</svg>

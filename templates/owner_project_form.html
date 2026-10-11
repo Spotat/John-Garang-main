@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}{% if project %}Edit {{ project.title }}{% else %}Add a project{% endif %} — Owner workspace{% endblock %}
+
+{% block content %}
+<section class="page-hero section-wrap owner-hero">
+    <a class="back-link" href="{{ url_for('owner_dashboard') }}"><span aria-hidden="true">←</span> Back to projects</a>
+    <p class="eyebrow">Owner workspace</p>
+    <h1>{% if project %}Edit <span>project.</span>{% else %}Add a <span>project.</span>{% endif %}</h1>
+    <p class="page-lede">Add the project story and media. Every case study gets its animated motion study automatically.</p>
+</section>
+
+<section class="section-wrap owner-panel owner-editor">
+    <form class="owner-form" method="post" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="owner-form-grid">
+            <div class="form-field">
+                {{ form.title.label }}
+                {{ form.title(placeholder="A memorable project name", required=true, class="form-control", maxlength="160") }}
+            </div>
+            <div class="form-field">
+                {{ form.slug.label }}
+                {{ form.slug(placeholder="project-name", required=true, class="form-control", maxlength="120", pattern="[a-z0-9]+(?:-[a-z0-9]+)*") }}
+                <small>Used in the public project URL. Lowercase letters, numbers, and hyphens.</small>
+            </div>
+            <div class="form-field">
+                {{ form.category.label }}
+                {{ form.category(placeholder="Web design & development", required=true, class="form-control", maxlength="120") }}
+            </div>
+            <div class="form-field">
+                {{ form.tools.label }}
+                {{ form.tools(placeholder="Figma, Flask, MySQL", required=true, class="form-control", maxlength="1000") }}
+            </div>
+            <div class="form-field owner-field-wide">
+                {{ form.description.label }}
+                {{ form.description(placeholder="A concise public summary of the project.", rows="3", required=true, class="form-control", maxlength="2000") }}
+            </div>
+            <div class="form-field owner-field-wide">
+                {{ form.brief.label }}
+                {{ form.brief(placeholder="The goal, audience, and challenge that shaped the work.", rows="4", required=true, class="form-control", maxlength="5000") }}
+            </div>
+            <div class="form-field owner-field-wide">
+                {{ form.focus.label }}
+                {{ form.focus(placeholder="The design and product decisions that made this project distinctive.", rows="3", required=true, class="form-control", maxlength="2000") }}
+            </div>
+            <div class="form-field owner-field-wide">
+                {{ form.workflow.label }}
+                {{ form.workflow(placeholder='[{"title":"Discover","description":"...","deliverable":"..."}]', rows="12", required=true, class="form-control owner-workflow-input") }}
+                <small>Provide 1–10 JSON stages. Every stage needs title, description, and deliverable. Existing projects start with the five-stage sample journey.</small>
+            </div>
+            <div class="form-field owner-field-wide">
+                <label for="media-files">Project images and videos</label>
+                <input class="form-control owner-file-input" id="media-files" type="file" name="media_files" accept=".jpg,.jpeg,.png,.gif,.webp,.mp4,.webm,image/jpeg,image/png,image/gif,image/webp,video/mp4,video/webm" multiple {% if not project %}required{% endif %}>
+                <small>JPG, PNG, GIF, WebP, MP4, or WebM. Up to 10 files per save, 20 MB per file, and 50 MB total per save. At least one image is required.</small>
+            </div>
+            {% if project and project.gallery %}
+            <fieldset class="owner-current-media owner-field-wide">
+                <legend>Current media</legend>
+                <p>Tick items to remove them. Keep or upload at least one image.</p>
+                <div class="owner-media-grid">
+                    {% for media in project.gallery %}
+                    <label class="owner-media-item">
+                        <input type="checkbox" name="remove_media" value="{{ media.id }}">
+                        {% if media.media_type == "image" %}
+                        <img src="{{ media.url }}" alt="{{ media.alt_text }}">
+                        {% else %}
+                        <span class="owner-media-video" aria-label="Video">▶ VIDEO</span>
+                        {% endif %}
+                        <span>{{ media.file_name }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </fieldset>
+            {% endif %}
+            <label class="owner-publish owner-field-wide">
+                {{ form.is_published() }}
+                <span><strong>Publish this project</strong><small>Unpublished projects remain visible only while you are signed in.</small></span>
+            </label>
+        </div>
+        <div class="owner-form-actions">
+            {{ form.submit(class="button button-primary") }}
+            <a class="button button-outline" href="{{ url_for('owner_dashboard') }}">Cancel</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
