@@ -391,6 +391,17 @@ textarea.form-control { min-height: 152px; resize: vertical; }
 .owner-hero .page-lede { max-width: 620px; }
 .owner-actions, .owner-form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; }
 .owner-actions form, .owner-project-actions form { margin: 0; }
+.owner-portrait-panel { display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); align-items: center; gap: clamp(20px, 4vw, 42px); padding-top: 28px; padding-bottom: 36px; border-top: 1px solid var(--line); }
+.owner-portrait-preview, .owner-portrait-preview img { width: 100%; aspect-ratio: 1; border-radius: 50%; }
+.owner-portrait-preview { overflow: hidden; background: var(--image-bg); }
+.owner-portrait-preview img { display: block; object-fit: cover; }
+.owner-portrait-content { max-width: 640px; }
+.owner-portrait-content .eyebrow { margin: 0 0 7px; }
+.owner-portrait-content h2 { margin: 0; font-family: var(--display); font-size: clamp(24px, 4vw, 34px); letter-spacing: -.045em; }
+.owner-portrait-content > p:not(.eyebrow) { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.owner-portrait-form { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; margin-top: 18px; }
+.owner-portrait-file { display: grid; flex: 1 1 260px; gap: 6px; color: var(--ink); font-size: 12px; font-weight: 700; }
+.owner-portrait-file input { width: 100%; min-width: 0; color: var(--muted); background: var(--surface); border: 1px solid var(--line); font: inherit; font-size: 11px; }
 .owner-panel { max-width: 900px; padding-bottom: 90px; }
 .owner-form { display: grid; gap: 20px; padding: clamp(20px, 4vw, 38px); background: var(--soft); border: 1px solid var(--line); }
 .owner-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
@@ -430,11 +441,16 @@ textarea.form-control { min-height: 152px; resize: vertical; }
 .owner-empty h2 { margin: 12px 0 5px; font-family: var(--display); font-size: 25px; }
 .owner-empty p { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
 @media (max-width: 700px) {
+    .owner-portrait-panel { grid-template-columns: 112px minmax(0, 1fr); gap: 18px; }
+    .owner-portrait-form { align-items: stretch; }
+    .owner-portrait-form > .button { width: 100%; }
     .owner-project-card { grid-template-columns: 92px minmax(0, 1fr); gap: 12px; }
     .owner-project-cover, .owner-project-cover img { width: 92px; height: 92px; }
     .owner-project-actions { grid-column: 1 / -1; justify-content: flex-end; }
 }
 @media (max-width: 540px) {
+    .owner-portrait-panel { grid-template-columns: 1fr; }
+    .owner-portrait-preview { width: min(42vw, 170px); }
     .owner-form-grid { grid-template-columns: 1fr; gap: 15px; }
     .owner-field-wide { grid-column: 1; }
     .owner-form-actions .button { flex: 1; }

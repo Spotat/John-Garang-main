@@ -407,8 +407,13 @@ def create_app(test_config=None):
 
     @app.before_request
     def set_request_size_limit():
-        if request.endpoint in {"owner_project_new", "owner_project_edit"}:
+        if request.endpoint in {
+            "owner_project_new",
+            "owner_project_edit",
+        }:
             request.max_content_length = 50 * 1024 * 1024
+        elif request.endpoint == "owner_portrait_upload":
+            request.max_content_length = MAX_MEDIA_FILE_SIZE + 1024 * 1024
         else:
             request.max_content_length = 64 * 1024
 
@@ -529,7 +534,7 @@ def create_app(test_config=None):
             mimetype=asset["mime_type"],
             download_name=secure_filename(asset["file_name"]),
             conditional=True,
-            max_age=86400,
+            max_age=0 if asset_key == "owner-portrait" else 86400,
         )
 
     @app.route("/owner/login", methods=["GET", "POST"])
@@ -570,6 +575,46 @@ def create_app(test_config=None):
         except mysql.connector.Error:
             app.logger.exception("Unable to load owner dashboard.")
             return render_template("error.html", title="Owner dashboard unavailable", code=503), 503
+
+    @app.post("/owner/site-assets/owner-portrait")
+    @owner_required
+    def owner_portrait_upload():
+        upload = request.files.get("portrait_file")
+        if upload is None or not upload.filename:
+            flash("Choose a portrait image to upload.", "error")
+            return redirect(url_for("owner_dashboard"))
+
+        try:
+            portrait = read_uploaded_media(upload)
+            if portrait["media_type"] != "image":
+                raise ValueError("Choose a JPG, PNG, GIF, or WebP image.")
+        except ValueError as error:
+            flash(str(error), "error")
+            return redirect(url_for("owner_dashboard"))
+
+        connection = get_db_connection()
+        cursor = connection.cursor()
+        try:
+            cursor.execute(
+                """
+                INSERT INTO portfolio_site_assets (asset_key, file_name, mime_type, binary_data)
+                VALUES ('owner-portrait', %s, %s, %s)
+                ON DUPLICATE KEY UPDATE
+                    file_name = VALUES(file_name),
+                    mime_type = VALUES(mime_type),
+                    binary_data = VALUES(binary_data)
+                """,
+                (portrait["file_name"], portrait["mime_type"], portrait["binary_data"]),
+            )
+            connection.commit()
+        except mysql.connector.Error:
+            connection.rollback()
+            raise
+        finally:
+            cursor.close()
+
+        flash("Owner portrait updated.", "success")
+        return redirect(url_for("owner_dashboard"))
 
     @app.route("/owner/projects/new", methods=["GET", "POST"])
     @owner_required

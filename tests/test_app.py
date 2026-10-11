@@ -201,6 +201,72 @@ class PortfolioRoutesTest(unittest.TestCase):
             dashboard = self.client.get("/owner/")
         self.assertEqual(dashboard.status_code, 200)
         self.assertIn(b"Your portfolio starts here", dashboard.data)
+        self.assertIn(b"Update your portrait", dashboard.data)
+        self.assertIn(b"multipart/form-data", dashboard.data)
+
+    def test_owner_can_replace_portrait_with_valid_image(self):
+        self.client.post(
+            "/owner/login",
+            data={"username": "john", "password": "test-owner-password-123"},
+        )
+        connection = FakeConnection()
+        portrait_data = b"\x89PNG\r\n\x1a\nnew-owner-portrait"
+        with patch("app.get_db_connection", return_value=connection):
+            response = self.client.post(
+                "/owner/site-assets/owner-portrait",
+                data={
+                    "portrait_file": (BytesIO(portrait_data), "new-portrait.png"),
+                },
+                content_type="multipart/form-data",
+            )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.headers["Location"], "/owner/")
+        statement, parameters = connection.test_cursor.calls[0]
+        self.assertIn("INSERT INTO portfolio_site_assets", statement)
+        self.assertIn("ON DUPLICATE KEY UPDATE", statement)
+        self.assertEqual(
+            parameters,
+            ("new-portrait.png", "image/png", portrait_data),
+        )
+        self.assertTrue(connection.committed)
+        self.assertTrue(connection.test_cursor.closed)
+
+    def test_invalid_portrait_upload_is_rejected_before_database_access(self):
+        self.client.post(
+            "/owner/login",
+            data={"username": "john", "password": "test-owner-password-123"},
+        )
+        with patch("app.get_db_connection") as connect:
+            response = self.client.post(
+                "/owner/site-assets/owner-portrait",
+                data={
+                    "portrait_file": (BytesIO(b"not-an-image"), "portrait.png"),
+                },
+                content_type="multipart/form-data",
+            )
+
+        self.assertEqual(response.status_code, 302)
+        connect.assert_not_called()
+        dashboard = self.client.get("/owner/")
+        self.assertIn(b"file contents do not match", dashboard.data)
+
+    def test_owner_portrait_asset_is_revalidated_by_browsers(self):
+        cursor = FakeCursor()
+        portrait_data = b"\x89PNG\r\n\x1a\ncurrent-portrait"
+        cursor.fetchone = lambda: {
+            "file_name": "portrait.png",
+            "mime_type": "image/png",
+            "binary_data": portrait_data,
+        }
+        connection = FakeConnection()
+        connection.test_cursor = cursor
+        with patch("app.get_db_connection", return_value=connection):
+            response = self.client.get("/site-assets/owner-portrait")
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, portrait_data)
+        self.assertEqual(response.cache_control.max_age, 0)
 
     def test_owner_project_form_renders_project_fields_and_default_journey(self):
         self.client.post(

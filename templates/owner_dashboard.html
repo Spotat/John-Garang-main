@@ -16,6 +16,23 @@
         </form>
     </div>
 </section>
+<section class="section-wrap owner-portrait-panel" aria-labelledby="owner-portrait-heading">
+    <div class="owner-portrait-preview">
+        <img src="{{ url_for('portfolio_site_asset', asset_key='owner-portrait') }}" alt="Current owner portrait">
+    </div>
+    <div class="owner-portrait-content">
+        <p class="eyebrow">Portfolio profile</p>
+        <h2 id="owner-portrait-heading">Update your portrait.</h2>
+        <p>This image appears on your home page. Upload a JPG, PNG, GIF, or WebP image up to 20 MB.</p>
+        <form class="owner-portrait-form" method="post" action="{{ url_for('owner_portrait_upload') }}" enctype="multipart/form-data">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label class="owner-portrait-file">Choose a portrait image
+                <input class="owner-file-input" type="file" name="portrait_file" accept=".jpg,.jpeg,.png,.gif,.webp,image/jpeg,image/png,image/gif,image/webp" required>
+            </label>
+            <button class="button button-primary" type="submit">Upload portrait</button>
+        </form>
+    </div>
+</section>
 <section class="section-wrap owner-projects">
     {% if projects %}
     <div class="owner-project-list">

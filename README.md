@@ -68,7 +68,7 @@ Public project pages require the schema and project migration to be applied. MyS
 
 ## Managing projects
 
-From the owner workspace, create, edit, publish/unpublish, or delete projects. Each project has a URL slug, category, public description, brief, creative focus, comma-separated tools, one or more project-journey stages, and an ordered media gallery. Upload JPG, PNG, GIF, or WebP images and MP4 or WebM video (up to 20 MB per file, 10 files and 50 MB total per save, with at least one image per project). The project detail page builds the motion study automatically; there is no separate motion file to upload. Unpublished projects and their media are visible only while the owner is signed in; private media responses are marked `no-store`.
+From the owner workspace, upload a JPG, PNG, GIF, or WebP image (up to 20 MB) in the profile section to replace the portrait displayed on the home page. You can also create, edit, publish/unpublish, or delete projects. Each project has a URL slug, category, public description, brief, creative focus, comma-separated tools, one or more project-journey stages, and an ordered media gallery. Upload JPG, PNG, GIF, or WebP images and MP4 or WebM video (up to 20 MB per file, 10 files and 50 MB total per save, with at least one image per project). The project detail page builds the motion study automatically; there is no separate motion file to upload. Unpublished projects and their media are visible only while the owner is signed in; private media responses are marked `no-store`.
 
 ## Production
 
